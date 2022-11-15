@@ -12,7 +12,7 @@ sha256sums=('903b5cab3986276e8cb2f72b7033cea735b317144471a4b585dcdae56153e58d')
 
 build() {
   sed -i -E \
-    "s|Exec=/opt/Bitwarden/bitwarden|Exec=/usr/bin/bitwarden|" \
+    "s|Exec=/opt/Bitwarden/bitwarden|Exec=/opt/bitwarden/bitwarden|" \
     "$srcdir/dist/usr/share/applications/bitwarden.desktop"
 }
 
@@ -29,8 +29,4 @@ package() {
   install -d "$pkgdir"/usr/{bin,lib,share/{pixmaps,icons,applications}}
   cp -a "$srcdir/dist/usr/share/icons" "$pkgdir/usr/share/icons" 
   install -Dm644 "$srcdir/dist/usr/share/applications/bitwarden.desktop" "$pkgdir/usr/share/applications/bitwarden.desktop"
-
-  # symlink /opt/bitwarden/bitwarden to /usr/bin/bitwarden
-  ln -s "$pkgdir/opt/bitwarden/bitwarden" "$pkgdir/usr/bin/bitwarden"
-  chmod +x "$pkgdir/usr/bin/bitwarden"
 }
