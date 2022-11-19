@@ -1,11 +1,12 @@
 # Maintainer: Noel <cutie@floofy.dev>
 
-pkgname=bitwarden-desktop
+pkgname=bitwarden-bin
 pkgrel=1
 pkgver=2022.10.1
 pkgdesc="Open source password management solutions for individuals, teams, and business organizations."
 license=("GPL")
 arch=('x86_64')
+conflicts=('bitwarden')
 source=("https://github.com/bitwarden/clients/releases/download/desktop-v${pkgver}/Bitwarden-${pkgver}-amd64.deb")
 url='https://bitwarden.com'
 sha256sums=('903b5cab3986276e8cb2f72b7033cea735b317144471a4b585dcdae56153e58d')
